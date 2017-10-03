@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Estudos_Spring_Angular_Mongo_Ionic.iml" filepath="$PROJECT_DIR$/.idea/modules/Estudos_Spring_Angular_Mongo_Ionic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Estudos_Spring_Angular_Mongo_Ionic_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Estudos_Spring_Angular_Mongo_Ionic_main.iml" group="Estudos_Spring_Angular_Mongo_Ionic" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Estudos_Spring_Angular_Mongo_Ionic_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Estudos_Spring_Angular_Mongo_Ionic_test.iml" group="Estudos_Spring_Angular_Mongo_Ionic" />
+    </modules>
+  </component>
+</project>
