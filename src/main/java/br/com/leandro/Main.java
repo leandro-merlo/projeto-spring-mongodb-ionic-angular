@@ -1,5 +1,6 @@
 package br.com.leandro;
 
+import br.com.leandro.config.WebSecurityConfiguration;
 import br.com.leandro.controllers.UsuarioController;
 import br.com.leandro.repositories.UsuarioRepository;
 import br.com.leandro.services.UsuarioService;
@@ -9,7 +10,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-@ComponentScan(basePackageClasses = {UsuarioService.class, UsuarioRepository.class, UsuarioController.class})
+@ComponentScan(basePackageClasses = {
+        UsuarioService.class,
+        UsuarioRepository.class,
+        UsuarioController.class,
+        WebSecurityConfiguration.class
+})
 @EnableAutoConfiguration
 @EnableWebMvc
 @SpringBootApplication

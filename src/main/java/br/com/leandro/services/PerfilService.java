@@ -5,44 +5,46 @@
  */
 package br.com.leandro.services;
 
-import br.com.leandro.entities.Usuario;
-import br.com.leandro.repositories.UsuarioRepository;
-import java.util.List;
+import br.com.leandro.entities.Perfil;
+import br.com.leandro.entities.Perfil;
+import br.com.leandro.repositories.PerfilRepository;
+import br.com.leandro.repositories.PerfilRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class UsuarioService {
+public class PerfilService {
     
     @Autowired
-    UsuarioRepository repository;
+    PerfilRepository repository;
     
-    public List<Usuario> listaUsuarios(){
+    public List<Perfil> listaPerfis(){
         return repository.findAll();
     }
 
-    public Page<Usuario> listaUsuariosPaginada(int pagina, int tamanho) {
+    public Page<Perfil> listaPerfisPaginada(int pagina, int tamanho) {
         Pageable page = new PageRequest(pagina, tamanho);
         return repository.findAll(page);
     }
 
-    public List<Usuario> procurarPorNome(String nome){
+    public List<Perfil> procurarPorNome(String nome){
         return repository.findByNomeLikeIgnoreCase(nome);
     }
 
-    public Usuario salvarUsuario(Usuario usuarioAdd) {
+    public Perfil salvarPerfil(Perfil usuarioAdd) {
         return repository.save(usuarioAdd);
     }
 
-    public void deletarUsuario(String id){
+    public void deletarPerfil(String id){
         repository.delete(id);
     }
 
-    public Usuario procurarPorId(String id){
+    public Perfil procurarPorId(String id){
         return repository.findOne(id);
     }
 }

@@ -10,12 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableLoadTimeWeaving;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.*;
 
-@ComponentScan(basePackageClasses = {UsuarioService.class, UsuarioRepository.class})
 @RestController
 public class UsuarioController {
     
@@ -26,9 +23,35 @@ public class UsuarioController {
     public List<Usuario> listUsuarios(){
         return service.listaUsuarios();
     }
-    
-    @PostMapping("/usuarios")
-    public List<Usuario> listUsuarios(@RequestBody Usuario usuario){
-        return service.listaUsuarios(usuario);
+
+    @GetMapping("/usuarios/{page}/{size}")
+    public Page<Usuario> listUsuarios(@PathVariable int page, @PathVariable int size){
+        return service.listaUsuariosPaginada(page, size);
     }
+
+    @PostMapping("/usuarios")
+    public Usuario salvarUsuario(@RequestBody Usuario usuario){
+        return service.salvarUsuario(usuario);
+    }
+
+    @PutMapping("/usuarios")
+    public Usuario editarUsuario(@RequestBody Usuario usuario){
+        return service.salvarUsuario(usuario);
+    }
+
+    @DeleteMapping("/usuarios/{id}")
+    public void deletarUsuario(@PathVariable String id){
+        service.deletarUsuario(id);
+    }
+
+    @GetMapping("/usuarios/{id}")
+    public Usuario usuarioPorId(@PathVariable String id){
+        return service.procurarPorId(id);
+    }
+
+    @GetMapping("/usuarios/procurar/{nome}")
+    public List<Usuario> usuarioPorNome(@PathVariable String nome){
+        return service.procurarPorNome(nome);
+    }
+
 }

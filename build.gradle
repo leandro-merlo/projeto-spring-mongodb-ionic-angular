@@ -1,5 +1,4 @@
 apply plugin: 'java'
-
 sourceCompatibility = '1.8'
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
@@ -15,11 +14,19 @@ if (!hasProperty('mainClass')) {
 }
 
 repositories {
+    maven {
+        url "https://mvnrepository.com/maven2"
+    }
+    maven {
+        url "https://repo.spring.io/libs-milestone"
+    }
     mavenCentral()
     // You may define additional repositories, or even remove "mavenCentral()".
     // Read more about repositories here:
     //   http://www.gradle.org/docs/current/userguide/dependency_management.html#sec:repositories
 }
+
+def springBootVersion = "1.5.7.RELEASE"
 
 dependencies {
     // TODO: Add dependencies here ...
@@ -28,4 +35,7 @@ dependencies {
     // testCompile group: 'junit', name: 'junit', version: '4.10'
     compile("org.springframework.boot:spring-boot-starter-web:1.5.7.RELEASE")
     compile("org.springframework.boot:spring-boot-starter-data-mongodb:1.5.7.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-security:1.5.7.RELEASE")
+    compile("org.springframework.security.oauth:spring-security-oauth2:2.2.0.RELEASE")
+    compile group: 'org.springframework.security', name: 'spring-security-acl', version: '4.2.0.RELEASE'
 }
